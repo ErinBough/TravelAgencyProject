@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Travel Experts Registration</title>
+        <link rel="stylesheet"href="reset.css">
+        <link rel="stylesheet"href="mystyle.css">
+        <style>
+            label{
+                color:blue
+            }
+            input{
+                background-color: whitesmoke;
+                border: solid black;
+                border-width: 1px;
+            }
+            .payment{
+                background-color: peachpuff;
+            }
+            .allpayments{
+                color: magenta;
+            }
+            #paymentid{
+                color:brown;
+            }
+
+        </style>
+
+        
+    </head>
+    <body>
+        <div style="background-color: lightgreen; border: solid green;" class="positioned">
+            <h1>Travel Experts Registration<h1>
+            <h2>Input your registration details:</h2>
+        </div>
+        <form action="" method="get" name="RegistrationForm">
+            <script>
+                function resetConfirmation(){
+                    let usr_input = confirm("Are you sure you want to reset?")
+                    if (usr_input){
+                        reset()
+                        alert("reset successfully")
+                    }
+                    else{
+                        alert("reset canceled")
+                    }
+                }
+                function submitConfirmation(){
+                    let usr_input = confirm("Are you sure you want to submit?")
+                    if(usr_input){
+                        submit()
+                        alert("submitted successfully")
+                    }else{
+                        alert("submit cancled")
+                    }
+                }
+            </script>
+            <br>
+            Username:
+            <input type="text" name="username" id="usernameid">
+            <br>
+            <br>
+            Password:
+            <input type="text" name="password" id="passwordid">
+            <br>
+            <br>
+            
+            <!--input type="submit"value="submit user details"-->
+            <input type="button" value="Submit" onclick="submitConfirmation()">
+            <input type="button" value="Clear" onclick="resetConfirmation()">
+            <hr>
+            <h3>Other types of input tags:<h3>
+            <label for="">Upload a File</label>
+            <input type="file">
+            <br>
+            <label for="countries">Select your nationality:</label>
+            <select name="countries"id="country">
+                <option value="Canada">Canadian</option>
+                <option value="United States">American</option>
+            </select>
+            <h3>Select your form of payment:</h3>
+            <h5>Payment Types</h5>
+            <div class="payment">
+                <input type="radio" name="payment" id="mastercard">
+                <label for="mastercard" class="payment"id="paymentid">MasterCard</label>
+                <input type="radio" name="payment" id="visa">
+                <label for="mastercard">Visa</label>
+                <input type="radio" name="payment" id="paypal">
+                <label for="mastercard"class="payment">PayPal</label>
+                <input type="radio" name="payment" id="american_express">
+                <label for="mastercard"class="payment">American Express</label>
+                <br>
+                <input type="radio" name="payment" id="onsite">
+                <label for="onsite">Pay on site</label>
+            </div>
+            <h2>Select Travel Date:</h2>
+            <input type="date"name="traveldate"id="traveldate">
+            <input type="datetime-local"name=""id="">
+
+            <h2>Select Food Preferences:</h2>
+            <label for="">Vegetarian</label>
+            <input type="checkbox" name="food" id="">
+            <label for="">Vegan</label>
+            <input type="checkbox" name="food" id="">
+            <label for="">Gluten Free</label>
+            <input type="checkbox" name="food" id="">
+            <label for="">Meatlovers</label>
+            <input type="checkbox" name="food" id="">
+            <label for="">No Preference</label>
+            <input type="checkbox" name="food" id="" checked="checked">
+
+
+
+            <h2>Additional Information:</h2>
+            <textarea name="info" id="" cols="30" rows="10"></textarea>
+
+            <p>Choose the color of your seat</p>
+            <input type="color" name="seatcolor" id="seatcolorid">
+
+            <p>C</p>
+        </form>
+
+        <br>
+        <a href="Index.html">Back</a>
+        <br>
+        <br>
+        <br>
+    </body>
+
+</html>

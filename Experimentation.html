@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <title>experiment</title>
+    </head>
+    <body>
+        <h1>this is pre-script text</h1>
+        <script>
+            document.write("<h1>Heading 1</h1><p>paragraph!</p>")
+            document.write("Text added using write!")
+            document.writeln("Text added using writeln!")
+            document.write("</br>hello class!")
+            document.write("</br>",Date(),"</br>")
+            document.write("sum=",2+4)
+            
+        </script>
+        <h1>this is post-script text</h1>
+        <button onclick="firstName()">Try it</button>
+        <script>
+            function firstName(){
+                var fname = prompt("please enter your name")
+                document.write("you wrote: "+fname)
+            }
+        </script>
+    </body>
+</HTML>
