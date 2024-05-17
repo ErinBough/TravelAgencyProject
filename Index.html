@@ -2,12 +2,70 @@
 <HTML>
     <head>
         <title>Travel Experts</title>
+        <script>
+            var jaypegs = new Array(5)
+            for(i=0;i<5;i++){
+                let s=i
+                s.toString()
+                jaypegs[i]="landscape"+s+".jpg"
+            }
+            var descriptions = new Array(5)
+            descriptions[0]="Epic Japanese Temple"
+            descriptions[1]="Gigantic Mountians"
+            descriptions[2]="Venice! I Love Venice!"
+            descriptions[3]="Meditate On A Cliff"
+            descriptions[4]="CottageCore Is So In Right Now"
+
+            function displayJaypegs(){
+                for(i=0;i<5;i++){
+                    let jaypeg_element = document.createElement("img")
+                    let haychone_element = document.createElement("h1")
+                    let teextee_element = document.createTextNode(descriptions[i])
+                    haychone_element.appendChild(teextee_element)
+                    jaypeg_element.setAttribute("src",jaypegs[i])
+                    jaypeg_element.setAttribute("width","100")
+                    jaypeg_element.setAttribute("height","100")
+                    let s = i
+                    s.toString()
+                    let modA = document.getElementById("mod_A"+s)
+                    let modB = document.getElementById("mod_B"+s) 
+                    modA.appendChild(jaypeg_element)
+                    modB.appendChild(haychone_element)
+                }
+            }
+        </script>
         <link rel="stylesheet"href="reset.css">
         <link rel="stylesheet"href="mystyle.css">
     </head>
-    <body>
+    <body onload="displayJaypegs()">
+        
         <img src="header.jpg"title="Travel Experts"width="450"height="150">
         <h1>Welcome to Travel Experts</h1>
+        <!--input type="button" value="show jaypegs" onclick="displayJaypegs()"-->
+        
+        <table>
+            <tr>
+                <td id="mod_A0"></td>
+                <td id="mod_B0"></td>
+            </tr>
+            <tr>
+                <td id="mod_A1"></td>
+                <td id="mod_B1"></td>
+            </tr>
+            <tr>
+                <td id="mod_A2"></td>
+                <td id="mod_B2"></td>
+            </tr>
+            <tr>
+                <td id="mod_A3"></td>
+                <td id="mod_B3"></td>
+            </tr>
+            <tr>
+                <td id="mod_A4"></td>
+                <td id="mod_B4"></td>
+            </tr>
+        </table>
+        <br>
         <img src="travel1.jpg"title="Live!"width="150"height="150">
         <img src="travel2.jpg"title="Laugh!"width="150"height="150">
         <img src="travel3.jpg"title="Love!"width="150"height="150">
