@@ -26,16 +26,32 @@
 
         </style>
 
+        <script>
+            function hideInfo(){
+                for(i=0;i<=2;i++){
+                    let s=i
+                    s.toString()
+                    document.getElementById("hid"+s).style.visibility="hidden"
+                }
+            }
+        </script>
+
         
     </head>
-    <body>
+    <body onload="hideInfo()">
         <div style="background-color: lightgreen; border: solid green;" class="positioned">
             <h1>Travel Experts Registration<h1>
             <h2>Input your registration details:</h2>
         </div>
-        <form action="" method="get" name="RegistrationForm">
+        <p id="display"></p>
+        <form action="" method="post" name="RegistrationForm">
             <script>
+                function revealFocused(id){
+                    hideInfo()
+                    document.getElementById(id).style.visibility="visible"
+                }
                 function resetConfirmation(){
+                    hideInfo()
                     let usr_input = confirm("Are you sure you want to reset?")
                     if (usr_input){
                         reset()
@@ -44,25 +60,57 @@
                         alert("reset canceled")
                     }
                 }
-                function submitConfirmation(){
+                function validateForm(f){
+                    if (f.elements[0].value==''){
+                        alert("Please enter a username")
+                        return false
+                    }
+                    if(f.elements[1].value==''){
+                        alert("Please enter a password")
+                        return false
+                    }
+                    let po=f.elements[2].value
+                    if(po==''){
+                        alert("Please enter a postal code")
+                        return false
+                    }else{
+                        let re= new RegExp(/^[A-Z]\d[A-Z] ?\d[A-Z]\d$/)
+                        if(false==re.test(po)){
+                            alert("Invalid postal code")
+                            return false
+                        }
+                    }
+                    return true
+                }
+                function submitConfirmation(form){
+                    hideInfo()
+                    if (validateForm(form)){
                     let usr_input = confirm("Are you sure you want to submit?")
                     if(usr_input){
                         submit()
                     }else{
-                        alert("submit cancled")
+                        alert("Submit cancled")
+                    }
                     }
                 }
             </script>
             <br>
             Username:
-            <input type="text" name="username" id="usernameid">
+            <input type="text" name="username" id="usernameid" onfocus="revealFocused('hid0')">
             <br>
+            <p id="hid0">Username must be unique</p>
             <br>
             Password:
-            <input type="text" name="password" id="passwordid">
+            <input type="text" name="password" id="passwordid" onfocus="revealFocused('hid1')">
             <br>
+            <p id="hid1">Password must have at least 8 characters, upper and lowercase letters, and characters</p>
             <br>
-            <input type="button" value="Submit" onclick="submitConfirmation()">
+            Postal Code:
+            <input type="text" name="postalcode" id="postcodealid" onfocus="revealFocused('hid2')">
+            <br>
+            <p id="hid2">Must be in "ANA NAN" form, where A is a capitalized letter and N is a digit</p>
+            <br>
+            <input type="button" value="Submit" onclick="submitConfirmation(this.form)">
             <input type="button" value="Clear" onclick="resetConfirmation()">
             <hr>
             <h3>Other types of input tags:<h3>
