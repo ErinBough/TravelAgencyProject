@@ -80,8 +80,8 @@
                 function submitConfirmation(form){
                     hideInfo()
                     if (validateForm(form)){//if false is returned do nothing
-                    let usr_input = confirm("Are you sure you want to submit?")//if valid, prompt user to confirm
-                    if(usr_input){
+                    let userInput = confirm("Are you sure you want to submit?")//if valid, prompt user to confirm
+                    if(userInput){
                         submit()//submit if user selects 'ok'
                     }else{
                         alert("Submit cancled")//notify user if user selects 'cancel'
