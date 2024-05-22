@@ -3,13 +3,30 @@
     <head>
         <title>Travel Experts</title>
         <script>
+            let w//this variable is in the script body so that it exists independant of any individual function
+            //this function exists because directly putting w.close() in setTimeout doesn't work
+            function pageClose(){
+                w.close()
+            }
+            function pageOpen(address){
+                //open the given address in a new window with width 100 and height 100
+                w=window.open(address,"newWindow","width=100","height=100");
+                //call pageClose() in 3 seconds
+                setTimeout("pageClose()",3000)
+            }
+            var pages = new Array(5)
+            pages[0]="https://www.japan.travel/en/ca/"
+            pages[1]="https://ntb.gov.np/"
+            pages[2]="https://www.veneziaunica.it/en/content/visit-venice-0"
+            pages[3]="https://www.destinationcanada.com/en/markets/china"
+            pages[4]="https://www.holland.com/global/tourism"
             var jaypegs = new Array(5)
             for(i=0;i<5;i++){//loop 5 times
                 let s=i//copy the variable i, because using toString() directly on i might cause complications
                 s.toString()//make a 1-character string that is a number 0-4
                 jaypegs[i]="landscape"+s+".jpg"//piece together the path of a specific in-folder jpg and add it to the array
             }
-            var descriptions = new Array(5)//create an array of individualized strings
+            var descriptions = new Array(5)
             descriptions[0]="Epic Japanese Temple"
             descriptions[1]="Gigantic Mountians"
             descriptions[2]="Venice! I Love Venice!"
@@ -26,6 +43,9 @@
                     jaypeg_element.setAttribute("src",jaypegs[i])//set the attribute src to the specific path from jaypegs array
                     jaypeg_element.setAttribute("width","100")//set the width attribute to 100
                     jaypeg_element.setAttribute("height","100")//set the height attribute to 100
+                    //set onClick attribute to call pageOpen with the specific page address
+                    //it is neccecary to put '' as actual characters outside the address, otherwise it will not be a string
+                    jaypeg_element.setAttribute("onclick","pageOpen('"+pages[i]+"')")
                     let s = i//copy the variable i, because using toString() directly on i might cause complications
                     s.toString()//make a 1-character string that is a number 0-4
                     let modA = document.getElementById("mod_A"+s)//piece together the specific element id and get the element
@@ -72,10 +92,10 @@
         <img src="travel3.jpg"title="Love!"width="150"height="150">
         <h1></h1>
         <a href="Register.html">
-            <img src="link1.jpg"title="Go to Register"width="225"height="150">
+            <img src="link2.jpg"title="Go to Register"width="225"height="150">
         </a>
         <a href="Contacts.html">
-            <img src="link2.jpg"title="Go to Contacts"width="225"height="150">
+            <img src="link1.jpg"title="Go to Contacts"width="225"height="150">
         </a>
         <h1></h1>
         <!--image of copyright symbol. when hovered displays additional copyright text-->
