@@ -7,39 +7,40 @@
         <link rel="stylesheet"href="mystyle.css">
         <style>
             label{
-                color:blue
+                color:darkred /*sets the text color of all input text labels. darkred for optimal contrast.*/
             }
             input{
-                background-color: whitesmoke;
-                border: solid black;
+                background-color: whitesmoke;/*gives slightly different color for input text boxes*/
+                border: solid black;/*gives solid border for input text boxes*/
                 border-width: 1px;
             }
             .payment{
-                background-color: peachpuff;
+                background-color: peachpuff;/*solid color backdrop for credit card selector*/
             }
-            .allpayments{
-                color: magenta;
-            }
-            #paymentid{
-                color:brown;
-            }
-
         </style>
 
         <script>
-            function hideInfo(){
+            function hideInfo(){//hides all focus-based information
                 for(i=0;i<=2;i++){
                     let s=i
                     s.toString()
                     document.getElementById("hid"+s).style.visibility="hidden"
                 }
             }
+            function testWindow(){
+                window.open("https://www.w3schools.com");
+            }
+            function testWindowClose(){
+                window.close("https://www.w3schools.com");
+            }
+            
         </script>
 
         
     </head>
-    <body onload="hideInfo()">
+    <body onload="hideInfo()"><!--hides info on load-->
         <div style="background-color: lightgreen; border: solid green;" class="positioned">
+            <!--positioned class makes the div stick to the top of the page-->
             <h1>Travel Experts Registration<h1>
             <h2>Input your registration details:</h2>
         </div>
@@ -47,83 +48,91 @@
         <form action="" method="post" name="RegistrationForm">
             <script>
                 function revealFocused(id){
-                    hideInfo()
-                    document.getElementById(id).style.visibility="visible"
+                    hideInfo()//hide all focus based elements
+                    document.getElementById(id).style.visibility="visible"//reveal the focused element
                 }
                 function resetConfirmation(){
-                    hideInfo()
-                    let usr_input = confirm("Are you sure you want to reset?")
+                    hideInfo()//hide all focus based elements
+                    let usr_input = confirm("Are you sure you want to reset?")//prompt user for input
                     if (usr_input){
-                        reset()
+                        reset()//reset if user selects 'ok'
                     }
                     else{
-                        alert("reset canceled")
+                        alert("reset canceled")//notify user if user selects 'cancel'
                     }
                 }
                 function validateForm(f){
-                    if (f.elements[0].value==''){
-                        alert("Please enter a username")
-                        return false
+                    if (f.elements[0].value==''){//check if the first element of the form is an empty string
+                        alert("Please enter a username")//if it is, notify user they must enter a username
+                        return false//end the function
                     }
-                    if(f.elements[1].value==''){
-                        alert("Please enter a password")
-                        return false
+                    if(f.elements[1].value==''){//check if the second element of the form is an empty string
+                        alert("Please enter a password")//if it is, notify user they must enter a password
+                        return false//end the function
                     }
                     let po=f.elements[2].value
-                    if(po==''){
-                        alert("Please enter a postal code")
-                        return false
+                    if(po==''){//check if the third element of the for is an empty string
+                        alert("Please enter a postal code")//if it is, notify user they must enter a postal code
+                        return false//end the function
                     }else{
                         let re= new RegExp(/^[A-Z]\d[A-Z] ?\d[A-Z]\d$/)
-                        if(false==re.test(po)){
-                            alert("Invalid postal code")
-                            return false
+                        if(false==re.test(po)){//test the postal code
+                            alert("Invalid postal code")//if invalid, notify user
+                            return false//end the function
                         }
                     }
                     return true
                 }
                 function submitConfirmation(form){
                     hideInfo()
-                    if (validateForm(form)){
-                    let usr_input = confirm("Are you sure you want to submit?")
+                    if (validateForm(form)){//if false is returned do nothing
+                    let usr_input = confirm("Are you sure you want to submit?")//if valid, prompt user to confirm
                     if(usr_input){
-                        submit()
+                        submit()//submit if user selects 'ok'
                     }else{
-                        alert("Submit cancled")
+                        alert("Submit cancled")//notify user if user selects 'cancel'
                     }
                     }
                 }
             </script>
             <br>
-            Username:
+            Username:<!--when the text box is selected, reveal the element with id 'hid0'-->
             <input type="text" name="username" id="usernameid" onfocus="revealFocused('hid0')">
             <br>
             <p id="hid0">Username must be unique</p>
             <br>
-            Password:
+            Password:<!--when the text box is selected, reveal the element with id 'hid1'-->
             <input type="text" name="password" id="passwordid" onfocus="revealFocused('hid1')">
             <br>
             <p id="hid1">Password must have at least 8 characters, upper and lowercase letters, and characters</p>
             <br>
-            Postal Code:
+            Postal Code:<!--when the text box is selected, reveal the element with id 'hid2'-->
             <input type="text" name="postalcode" id="postcodealid" onfocus="revealFocused('hid2')">
             <br>
             <p id="hid2">Must be in "ANA NAN" form, where A is a capitalized letter and N is a digit</p>
             <br>
+            <!--click button to validate, comfirm & submit the form-->
             <input type="button" value="Submit" onclick="submitConfirmation(this.form)">
+            <!--click the button to confirm & reset the form-->
             <input type="button" value="Clear" onclick="resetConfirmation()">
             <hr>
             <h3>Other types of input tags:<h3>
+            <!--uploads a file to the form-->
             <label for="">Upload a File</label>
             <input type="file">
             <br>
-            <label for="countries">Select your nationality:</label>
+            <!--dropdown for countries-->
+            <label for="countries">Select your country:</label>
             <select name="countries"id="country">
-                <option value="Canada">Canadian</option>
-                <option value="United States">American</option>
+                <option value="Canada">Canada</option>
+                <option value="United States">America</option>
+                <option value="United States">Cambodia</option>
+                <option value="United States">Japan</option>
+                <option value="United States">Uzbekistan</option>
             </select>
             <h3>Select your form of payment:</h3>
             <h5>Payment Types</h5>
+            <!--dot selector for credit card type-->
             <div class="payment">
                 <input type="radio" name="payment" id="mastercard">
                 <label for="mastercard" class="payment"id="paymentid">MasterCard</label>
@@ -137,10 +146,12 @@
                 <input type="radio" name="payment" id="onsite">
                 <label for="onsite">Pay on site</label>
             </div>
+            <!--calender-style date selctor-->
             <h2>Select Travel Date:</h2>
             <input type="date"name="traveldate"id="traveldate">
             <input type="datetime-local"name=""id="">
 
+            <!--multiple-choice checkbox for food preferences-->
             <h2>Select Food Preferences:</h2>
             <label for="">Vegetarian</label>
             <input type="checkbox" name="food" id="">
@@ -154,15 +165,20 @@
             <input type="checkbox" name="food" id="" checked="checked">
 
 
-
+            <!--open text box for user to write freeform feedback-->
             <h2>Additional Information:</h2>
             <textarea name="info" id="" cols="30" rows="10"></textarea>
 
             <p>Choose the color of your seat</p>
+            <!--color selector, dropper style-->
             <input type="color" name="seatcolor" id="seatcolorid">
 
+
+            <input type="button" value="Open" onclick="testWindow()">
+            <input type="button" value="Close" onclick="testWindowClose()">
             <p>C</p>
         </form>
+
 
         <br>
         <a href="Index.html">Back</a>
