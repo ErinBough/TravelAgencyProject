@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Travel Experts Registration</title>
-        <link rel="stylesheet"href="reset.css">
-        <link rel="stylesheet"href="mystyle.css">
+        <link rel="stylesheet"href="reset.css"><!--resets style to baseline-->
+        <link rel="stylesheet"href="mystyle.css"><!--configures to site-wide style-->
         <style>
             label{
                 color:darkred /*sets the text color of all input text labels. darkred for optimal contrast.*/
@@ -28,7 +28,7 @@
                 }
             }
             function testWindow(){
-                window.open("https://www.w3schools.com");
+                console.log("console log testing");
             }
             function testWindowClose(){
                 window.close("https://www.w3schools.com");
@@ -176,14 +176,16 @@
 
             <input type="button" value="Open" onclick="testWindow()">
             <input type="button" value="Close" onclick="testWindowClose()">
-            <p>C</p>
         </form>
 
 
         <br>
+        <!--hyperlink text to index page-->
         <a href="Index.html">Back</a>
         <br>
         <br>
+        <!--image of copyright symbol. when hovered displays additional copyright text-->
+        <img src="copyright.png"title="Copytright 2024 Travel Experts"width="25"height="25">
         <br>
     </body>
 

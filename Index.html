@@ -4,12 +4,12 @@
         <title>Travel Experts</title>
         <script>
             var jaypegs = new Array(5)
-            for(i=0;i<5;i++){
-                let s=i
-                s.toString()
-                jaypegs[i]="landscape"+s+".jpg"
+            for(i=0;i<5;i++){//loop 5 times
+                let s=i//copy the variable i, because using toString() directly on i might cause complications
+                s.toString()//make a 1-character string that is a number 0-4
+                jaypegs[i]="landscape"+s+".jpg"//piece together the path of a specific in-folder jpg and add it to the array
             }
-            var descriptions = new Array(5)
+            var descriptions = new Array(5)//create an array of individualized strings
             descriptions[0]="Epic Japanese Temple"
             descriptions[1]="Gigantic Mountians"
             descriptions[2]="Venice! I Love Venice!"
@@ -17,32 +17,33 @@
             descriptions[4]="CottageCore Is So In Right Now"
 
             function displayJaypegs(){
-                for(i=0;i<5;i++){
-                    let jaypeg_element = document.createElement("img")
-                    let haychone_element = document.createElement("h1")
+                for(i=0;i<5;i++){//loop 5 times
+                    let jaypeg_element = document.createElement("img")//create an empty img element
+                    let haychone_element = document.createElement("h1")//create an empty h1 element
+                    //create a text node out of a specific string from the descriptions array
                     let teextee_element = document.createTextNode(descriptions[i])
-                    haychone_element.appendChild(teextee_element)
-                    jaypeg_element.setAttribute("src",jaypegs[i])
-                    jaypeg_element.setAttribute("width","100")
-                    jaypeg_element.setAttribute("height","100")
-                    let s = i
-                    s.toString()
-                    let modA = document.getElementById("mod_A"+s)
-                    let modB = document.getElementById("mod_B"+s) 
-                    modA.appendChild(jaypeg_element)
-                    modB.appendChild(haychone_element)
+                    haychone_element.appendChild(teextee_element)//add the text node to the empty h1 element
+                    jaypeg_element.setAttribute("src",jaypegs[i])//set the attribute src to the specific path from jaypegs array
+                    jaypeg_element.setAttribute("width","100")//set the width attribute to 100
+                    jaypeg_element.setAttribute("height","100")//set the height attribute to 100
+                    let s = i//copy the variable i, because using toString() directly on i might cause complications
+                    s.toString()//make a 1-character string that is a number 0-4
+                    let modA = document.getElementById("mod_A"+s)//piece together the specific element id and get the element
+                    let modB = document.getElementById("mod_B"+s) //piece together the specific element id and get the element
+                    modA.appendChild(jaypeg_element)//add the image element to the specific element
+                    modB.appendChild(haychone_element)//add the h1 element to the specific element
                 }
             }
         </script>
-        <link rel="stylesheet"href="reset.css">
-        <link rel="stylesheet"href="mystyle.css">
+        <link rel="stylesheet"href="reset.css"><!--resets style to baseline-->
+        <link rel="stylesheet"href="mystyle.css"><!--configures to site-wide style-->
     </head>
-    <body onload="displayJaypegs()">
+    <body onload="displayJaypegs()"><!--loads images on load-->
         
         <img src="header.jpg"title="Travel Experts"width="450"height="150">
         <h1>Welcome to Travel Experts</h1>
-        <!--input type="button" value="show jaypegs" onclick="displayJaypegs()"-->
-        
+        <!--empty table of empty data cells, with systematically labelled IDs.-->
+        <!--used by the displayJaypegs function which is called on load.-->
         <table>
             <tr>
                 <td id="mod_A0"></td>
@@ -77,6 +78,7 @@
             <img src="link2.jpg"title="Go to Contacts"width="225"height="150">
         </a>
         <h1></h1>
+        <!--image of copyright symbol. when hovered displays additional copyright text-->
         <img src="copyright.png"title="Copytright 2024 Travel Experts"width="25"height="25">
     </body>
 </HTML>
