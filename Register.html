@@ -21,14 +21,23 @@
 
         <script>
             function hideInfo(){//hides all focus-based information
-                for(i=0;i<=2;i++){
-                    let s=i
-                    s.toString()
+                for(i=0;i<=2;i++){//loop 3 times
+                    let s=i//copy the variable i, because using toString() directly on i might cause complications
+                    s.toString()//make a 1-character string that is a number 0-2
+                    //piece together the specific element id, get the element, set the visibility style to "hidden"
                     document.getElementById("hid"+s).style.visibility="hidden"
                 }
             }
+            function closeTestWindow(w){
+                w.close()
+            }
             function testWindow(){
-                console.log("console log testing");
+                let w = window.open();
+                let u=confirm("close?")
+                if(u){
+                    alert("closed")//closeTestWindow(w)
+                }
+                
             }
             function testWindowClose(){
                 window.close("https://www.w3schools.com");
@@ -116,68 +125,7 @@
             <!--click the button to confirm & reset the form-->
             <input type="button" value="Clear" onclick="resetConfirmation()">
             <hr>
-            <h3>Other types of input tags:<h3>
-            <!--uploads a file to the form-->
-            <label for="">Upload a File</label>
-            <input type="file">
-            <br>
-            <!--dropdown for countries-->
-            <label for="countries">Select your country:</label>
-            <select name="countries"id="country">
-                <option value="Canada">Canada</option>
-                <option value="United States">America</option>
-                <option value="United States">Cambodia</option>
-                <option value="United States">Japan</option>
-                <option value="United States">Uzbekistan</option>
-            </select>
-            <h3>Select your form of payment:</h3>
-            <h5>Payment Types</h5>
-            <!--dot selector for credit card type-->
-            <div class="payment">
-                <input type="radio" name="payment" id="mastercard">
-                <label for="mastercard" class="payment"id="paymentid">MasterCard</label>
-                <input type="radio" name="payment" id="visa">
-                <label for="mastercard">Visa</label>
-                <input type="radio" name="payment" id="paypal">
-                <label for="mastercard"class="payment">PayPal</label>
-                <input type="radio" name="payment" id="american_express">
-                <label for="mastercard"class="payment">American Express</label>
-                <br>
-                <input type="radio" name="payment" id="onsite">
-                <label for="onsite">Pay on site</label>
-            </div>
-            <!--calender-style date selctor-->
-            <h2>Select Travel Date:</h2>
-            <input type="date"name="traveldate"id="traveldate">
-            <input type="datetime-local"name=""id="">
-
-            <!--multiple-choice checkbox for food preferences-->
-            <h2>Select Food Preferences:</h2>
-            <label for="">Vegetarian</label>
-            <input type="checkbox" name="food" id="">
-            <label for="">Vegan</label>
-            <input type="checkbox" name="food" id="">
-            <label for="">Gluten Free</label>
-            <input type="checkbox" name="food" id="">
-            <label for="">Meatlovers</label>
-            <input type="checkbox" name="food" id="">
-            <label for="">No Preference</label>
-            <input type="checkbox" name="food" id="" checked="checked">
-
-
-            <!--open text box for user to write freeform feedback-->
-            <h2>Additional Information:</h2>
-            <textarea name="info" id="" cols="30" rows="10"></textarea>
-
-            <p>Choose the color of your seat</p>
-            <!--color selector, dropper style-->
-            <input type="color" name="seatcolor" id="seatcolorid">
-
-
-            <input type="button" value="Open" onclick="testWindow()">
-            <input type="button" value="Close" onclick="testWindowClose()">
         </form>
-
 
         <br>
         <!--hyperlink text to index page-->
