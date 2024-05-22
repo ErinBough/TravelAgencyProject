@@ -1,26 +1,25 @@
 label{
-    color:lightcoral
+    color:lightcoral/*set color of label elements to lightcoral*/
 }
 h1{
     align-content: center;
-    font-size: 30px;
-    color:blue
+    font-size: 30px;/*set font size of h1 elements to 30*/
+    color:blue/*set color of h1 elements to blue*/
 }
 h2{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;/*change font of h2 elements to that*/
+    font-size: 20px;/*set font size of h2 elements to 20*/
 }
 li{
-    color:purple
+    color:purple/*set color of list elements to purple*/
 }
 body{
-    background-image: url("airplanebg.jpg");
-    background-color: #cccccc;
+    background-image: url("airplanebg.jpg");/*sets the background to an image*/
 }
 .positioned{
-    position: sticky;
-    top: 0px;
-    left: 30px;
+    position: sticky;/*make it so that the elements with the class "positioned" stick to the page when scrolled out of view*/
+    top: 0px;/*sets the vertical position that the element will stick to*/
+    left: 30px;/*sets the horizontal position that the element will stick to*/
 }
 
 
